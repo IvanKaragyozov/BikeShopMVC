@@ -1,0 +1,64 @@
+﻿@model IEnumerable<BikeShopCourseWorkFinal.Models.Bikes>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Bikes</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Bike
+        </th>
+        <th>
+            Sizes
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IsCarbon)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Price)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Weight)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Warranty)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.BikeName)
+            
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Sizes.Size)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IsCarbon)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Price) лв.
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Weight) кг
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Warranty) години
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>
